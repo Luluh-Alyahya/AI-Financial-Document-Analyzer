@@ -1,0 +1,27 @@
+# Basic libraries for PDF to Image conversion
+pdf2image        # core library to convert PDFs to images
+pillow           # image handling (saving and resizing)
+tqdm             # progress bar for conversions
+
+# Windows-specific note:
+# pdf2image requires Poppler for rendering PDFs.
+# Download Poppler for Windows:
+# https://github.com/oschwartz10612/poppler-windows/releases/
+# After installing, set its bin folder path as `poppler_path` in your code.
+
+# Core scientific and visualization libraries
+numpy            # numerical operations
+pandas           # data frame handling
+matplotlib       # plotting graphs
+seaborn          # advanced visualizations
+
+# Image processing + modeling
+opencv-python    # image reading and resizing
+scikit-learn     # clustering and ML algorithms
+tensorflow       # pre-trained CNN (MobileNetV2 / EfficientNet)
+umap-learn       # dimensionality reduction & visualization (UMAP)
+
+roboflow         # dataset management and YOLO model training
+streamlit        # web app framework
+ultralytics     # YOLOv8 implementation
+plotly          # interactive visualizations

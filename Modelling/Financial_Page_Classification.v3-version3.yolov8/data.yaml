@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ['auditor_report', 'financial_sheets', 'notes', 'other', 'table', 'text']
+
+roboflow:
+  workspace: test-8eidq
+  project: financial_page_classification-u0vgl
+  version: 3
+  license: Private
+  url: https://app.roboflow.com/test-8eidq/financial_page_classification-u0vgl/3
