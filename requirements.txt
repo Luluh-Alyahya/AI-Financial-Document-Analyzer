@@ -22,7 +22,7 @@ tensorflow       # pre-trained CNN (MobileNetV2 / EfficientNet)
 umap-learn       # dimensionality reduction & visualization (UMAP)
 
 roboflow         # dataset management and YOLO model training
-streamlit        # web app framework
+streamlit==1.36.0         # web app framework
 ultralytics     # YOLOv8 implementation
 plotly          # interactive visualizations
 protobuf<=5.28.0
