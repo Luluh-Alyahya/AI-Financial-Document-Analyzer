@@ -25,4 +25,4 @@ roboflow         # dataset management and YOLO model training
 streamlit        # web app framework
 ultralytics     # YOLOv8 implementation
 plotly          # interactive visualizations
-protobuf<=3.20.3
+protobuf<=5.28.0
