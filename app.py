@@ -10,6 +10,7 @@ from pdf2image import convert_from_path
 from sklearn.cluster import KMeans
 import plotly.express as px
 import plotly.graph_objects as go
+import requests
 
 #  PAGE SETUP
 st.set_page_config(page_title="AI Financial Analyzer", page_icon="📊", layout="wide")
@@ -371,7 +372,29 @@ st.markdown("</div>", unsafe_allow_html=True)
 # MODEL
 @st.cache_resource
 def load_yolo():
-    return YOLO(r"Modelling\\Financial_Page_Classification.v3-version3.yolov8\\best.pt")
+    # Google Drive file ID for your model
+    file_id = "1YMXkqIiLpbrrKlTb1a9owCdPRzRsnCHA"
+    model_path = "best.pt"
+
+    if not os.path.exists(model_path):
+        progress = st.progress(0)
+        st.write("📥 Downloading model from Google Drive... Please wait.")
+        download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+        response = requests.get(download_url, stream=True)
+        total_size = int(response.headers.get('content-length', 0))
+        downloaded = 0
+        with open(model_path, "wb") as f:
+            for chunk in response.iter_content(1024):
+                if chunk:
+                    f.write(chunk)
+                    downloaded += len(chunk)
+                    progress.progress(min(downloaded / total_size, 1.0))
+        st.success("✅ Model downloaded successfully!")
+
+    model = YOLO(model_path)
+    return model
+
+# Load YOLO model once
 yolo_model = load_yolo()
 
 # HELPERS AND FUNCTIONS
